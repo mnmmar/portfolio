@@ -1,0 +1,133 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(199, 218, 210);
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: rgba(119, 32, 249, 0.9);
+}
+
+.logo {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 26px;
+}
+
+.nav-links {
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 4px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.nav-links li {
+    list-style-type: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    margin: 5px;
+}
+
+.burger {
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: rgba(119, 32, 249, 0.9);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+    }
+
+    .nav-links li {
+        opacity: 1;
+    }
+
+    .burger {
+        display: block;
+        cursor: pointer;
+    }
+
+
+}
+
+.nav-active {
+    transform: translateX(0%);
+    transition: transform 0.5s ease-in;
+}
+
+.game-button {
+    cursor: pointer;
+}
+
+/* #run {
+    animation: two-animate 1s infinite linear;
+} */
+#jump {
+    animation: one-animate 0.5s;
+}
+
+/* @keyframes two-animate {
+    0% {
+        left: 97%;
+    }
+    100% {
+        left: -10px
+    }
+} */
+@keyframes one-animate {
+    0% {
+        top: 150px
+    }
+    30% {
+        top: 100px
+    }
+    70% {
+        top: 100px
+    }
+    100% {
+        top: 150px
+    }
+}
+
+.container {
+    background-color: white;
+}
