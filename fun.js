@@ -8,15 +8,18 @@ const game = () => {
     const $intro = $('<div>').css({'width': '100%', 'height': '100%', 'background-color': 'rgb(117, 170, 117)', 'text-align': 'center'}).appendTo($('.container'))
     const $button = $('<button>').addClass('game-button').css({'margin-top': '80px', 'font-size': '20px'}).text("Let's Start!").appendTo($intro)
 
-    const $gameScreen = $('<div>').appendTo($container).hide()
-    const $div1 = $('<div>').addClass('green').css({'width': '20px', 'height': '50px', 'background-color': 'rgb(117, 170, 117)', 'position': 'relative', 'top': '146px'}).appendTo($gameScreen)
-    const $div2 = $('<div>').addClass('purple').css({'width': '20px', 'height': '20px', 'background-color': 'rgb(119, 32, 249)', 'position': 'relative', 'top': '126px', 'left': '360px'}).appendTo($gameScreen)
+    const $gameScreen = $('<div>').addClass('game-screen').appendTo($container).hide()
+    const $div1 = $('<div>').addClass('green').css({'width': '20px', 'height': '50px', 'background-color': 'rgb(117, 170, 117)', 'position': 'relative', 'top': '146px', 'left': '10%'}).appendTo($gameScreen)
+    const $div2 = $('<div>').addClass('purple').css({'width': '20px', 'height': '20px', 'background-color': 'rgb(119, 32, 249)', 'position': 'relative', 'top': '126px', 'left': '97%'}).appendTo($gameScreen)
 
     $button.on('click', () => {
         $gameScreen.show()
         $intro.hide()
         runs();
     })
+
+    const $gameOver = $('<div>').addClass('game-over').appendTo($container).css({'width': '100%', 'height': '100%', 'background-color': 'lavender', 'text-align': 'center'}).hide()
+    const $words = $('<p>').text('You LOSE!!').css({'font-size': '30px', 'padding': '70px 0 0 0'}).appendTo($gameOver)
 }
 const jumps = () => {
     $('.green').attr('id', 'jump')
@@ -35,16 +38,19 @@ const runs = () => {
             {duration: 1000,
 
             complete: () => {
-                $('.purple').css('left', '360px')
+                $('.purple').css('left', '97%')
                 runs()
             },
 
             step: () => {
                 const check1 = $('.green').first().css('top') == '146px'
-                const check2 = parseInt($('.purple').first().css('left')) <= 20
+                const check2 = parseInt($('.purple').first().css('left')) <= 90
+                
                 if (check1 && check2) {
                     $('.purple').stop()
-                    
+                    // alert('You lost!')
+                    $('.game-over').show()
+                    $('.game-screen').hide()
                 }
                
             }
@@ -58,7 +64,7 @@ const runs = () => {
 const contactDiv = () => {
     const $div = $('<div>').addClass('contact-div').prependTo($('body')).hide()
 
-    $div.css({'width': '100%', 'height': '300px', 'background-color': 'rgba(119, 32, 249, 0.9)'})
+    $div.css({'width': '80%', 'height': '300px', 'background-color': 'rgba(119, 32, 249, 0.9)', 'margin': '20% 0 0 10%'})
 
     const $heading = $('<h1>').text('Reach out to me!').css({'color': 'white', 'font-size': '30px', 'padding-top': '2%'}).prependTo($div)
     const $par = $('<p>').text('I would love to hear from you.').css({'color': 'white', 'font-size': '25px', 'margin-top': '2%'}).insertAfter($heading)
@@ -78,12 +84,13 @@ $(() => {
     game();
     contactDiv();
     btnClose();
+    
     $('.burger').on('click', () => {
         navStart();
     })
 
     $('.contact').on('click', () => {
-        $('.contact-div').show();
+        $('.contact-div').show('slow');
         $('.contact-button').show();
         $('nav').hide();
         $('.container').hide();

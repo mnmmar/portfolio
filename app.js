@@ -1,7 +1,7 @@
 
 const makeDiv = () => {
     const $div = $('<div>').addClass('new-div').prependTo($('body')).hide()
-    $div.css({'background-color': 'rgba(119, 32, 249, 0.9)', 'text-align': 'center'})
+    $div.css({'background-color': 'rgba(119, 32, 249, 0.9)', 'text-align': 'center', 'width': '80%', 'height': '400px', 'margin': '20% 0 0 10%', 'overflowY': 'scroll'})
     const $heading = $('<h1>').text('ABOUT ME').css({'font-size': '40px', 'padding-bottom': '20px', 'text-decoration': 'underline', 'color': 'white'}).prependTo($div)
     const $par = $('<p>').text('My name is Mar Mar Min. I am 21 years old and I was born in Thailand but raised in Fort Wayne, Indiana. I\'ve been here since I was about 7 years old. After finishing highschool, I have been floating around. I was a nail tech through highschool and afterwards before I switched over to childcare. I also lived in Boston, Massachusetts for a little bit to help my parents out with their sushi business. While living in Boston, I had a lot of free time while living with my parents at their house so I took up coding for fun. I fell in love with how wonderful and satisfying coding is and now I\'m here!').css({'font-size': '30px', 'color': 'white', 'padding': '10px 30px 10px 30px'}).appendTo($div)
 }
@@ -9,13 +9,13 @@ const makeDiv = () => {
 const closeBtn = () => {
     const $div = $('<div>').appendTo($('body'))
     $div.css('text-align', 'right')
-    const $bttn = $('<button>').addClass('close').text('Close').css({'font-size': '30px', 'color': 'white', 'background-color': 'rgb(117, 170, 117)'}).appendTo($div).hide()
+    const $bttn = $('<button>').addClass('close').text('Close').css({'font-size': '30px', 'color': 'white', 'background-color': 'rgba(119, 32, 249, 0.9)', 'border-radius': '60% 60% 4% 60%', 'padding': '0.5% 0.5% 0.5% 0.5%', 'margin': '5% 10% 0 0', 'border': 'none'}).appendTo($div).hide()
 }
 
 const contactDiv = () => {
     const $div = $('<div>').addClass('contact-div').prependTo($('body')).hide()
 
-    $div.css({'width': '100%', 'height': '300px', 'background-color': 'rgba(119, 32, 249, 0.9)'})
+    $div.css({'width': '80%', 'height': '300px', 'background-color': 'rgba(119, 32, 249, 0.9)', 'margin': '20% 0 0 10%'})
 
     const $heading = $('<h1>').text('Reach out to me!').css({'color': 'white', 'font-size': '30px', 'padding-top': '2%'}).prependTo($div)
     const $par = $('<p>').text('I would love to hear from you.').css({'color': 'white', 'font-size': '25px', 'margin-top': '2%'}).insertAfter($heading)

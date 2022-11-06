@@ -5,7 +5,7 @@ const navStart = () => {
 const contactDiv = () => {
     const $div = $('<div>').addClass('contact-div').prependTo($('body')).hide()
 
-    $div.css({'width': '100%', 'height': '300px', 'background-color': 'rgba(119, 32, 249, 0.9)'})
+    $div.css({'width': '80%', 'height': '300px', 'background-color': 'rgba(119, 32, 249, 0.9)', 'margin': '20% 0 0 10%'})
 
     const $heading = $('<h2>').text('Reach out to me!').css({'color': 'white', 'font-size': '30px', 'padding-top': '2%'}).prependTo($div)
     const $par = $('<p>').text('I would love to hear from you.').css({'color': 'white', 'font-size': '25px', 'margin-top': '2%'}).insertAfter($heading)
